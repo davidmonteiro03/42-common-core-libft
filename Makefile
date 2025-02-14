@@ -6,7 +6,7 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 13:06:53 by dcaetano          #+#    #+#              #
-#    Updated: 2025/02/14 09:04:15 by dcaetano         ###   ########.fr        #
+#    Updated: 2025/02/14 10:57:45 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,12 +51,12 @@ all: ${NAME}
 	@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 	@echo "$(YELLOW)Compiling $(CYAN)$<$(RESET)..."
 
-$(NAME):${OBJS}
+$(NAME): ${OBJS}
 	@${AR} ${NAME} ${OBJS}
 	@${LIB} ${NAME}
 	@echo "$(CYAN)$(NAME) $(GREEN)created$(RESET)!"
 
-bonus:${OBJS} ${OBJS_BONUS}
+bonus: ${OBJS} ${OBJS_BONUS}
 	@${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
 	@${LIB} ${NAME}
 	@echo "$(CYAN)$(NAME) $(GREEN)created$(RESET)!"
@@ -69,10 +69,10 @@ clean:
 	@${RM} ${OBJS} ${OBJS_BONUS}
 	@echo "$(CYAN)Objects $(RED)removed$(RESET)!"
 
-fclean:	clean
+fclean: clean
 	@${RM} ${NAME}
 	@echo "$(CYAN)$(NAME) $(RED)removed$(RESET)!"
 
-re:	fclean all
+re: fclean all
 
 .PHONY: all bonus clean fclean re
