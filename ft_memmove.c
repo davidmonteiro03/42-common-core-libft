@@ -6,7 +6,7 @@
 /*   By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:34:35 by dcaetano          #+#    #+#             */
-/*   Updated: 2023/10/05 15:56:37 by dcaetano         ###   ########.fr       */
+/*   Updated: 2025/02/14 08:59:51 by dcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t			i;
+	size_t	i;
 
 	if (!dest && !src)
 		return (NULL);
