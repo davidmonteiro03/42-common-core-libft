@@ -6,15 +6,9 @@
 #    By: dcaetano <dcaetano@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 13:06:53 by dcaetano          #+#    #+#              #
-#    Updated: 2025/02/14 10:58:36 by dcaetano         ###   ########.fr        #
+#    Updated: 2025/02/14 11:04:55 by dcaetano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-RED        = \033[1;91m
-GREEN      = \033[1;92m
-YELLOW     = \033[1;93m
-CYAN       = \033[1;96m
-RESET      = \033[1;0m
 
 SRCS       = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
              ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c \
@@ -49,17 +43,14 @@ all: ${NAME}
 
 .c.o:
 	@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
-	@echo "$(YELLOW)Compiling $(CYAN)$<$(RESET)..."
 
 $(NAME): ${OBJS}
 	@${AR} ${NAME} ${OBJS}
 	@${LIB} ${NAME}
-	@echo "$(CYAN)$(NAME) $(GREEN)created$(RESET)!"
 
 bonus: ${OBJS} ${OBJS_BONUS}
 	@${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
 	@${LIB} ${NAME}
-	@echo "$(CYAN)$(NAME) $(GREEN)created$(RESET)!"
 
 so:
 	@${CC} -nostartfiles -fPIC ${FLAGS} ${SRCS} ${SRCS_BONUS}
@@ -67,11 +58,9 @@ so:
 
 clean:
 	@${RM} ${OBJS} ${OBJS_BONUS}
-	@echo "$(CYAN)Objects $(RED)removed$(RESET)!"
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "$(CYAN)$(NAME) $(RED)removed$(RESET)!"
 
 re: fclean all
 
